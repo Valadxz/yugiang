@@ -2,11 +2,11 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-app.use(express.static(__dirname + '/dist/yugiang'));
+app.use(express.static(__dirname + '/dist/curso-profesional-angular'));
 
 app.get('/*', function(req,res) {
 
-res.sendFile(path.join(__dirname+'/dist/yugiang'));
+res.sendFile(path.join(__dirname+'/dist/curso-profesional-angular/index.html'));
 });
 
 app.listen(process.env.PORT || 8080);

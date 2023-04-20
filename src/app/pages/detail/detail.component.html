@@ -1,0 +1,44 @@
+
+<div class="contenedor">
+    <div class="detail-card" *ngIf="card$ | async as card">
+    <div class="top">
+        <img [src]="card.card_images[0].image_url">
+    
+    </div>
+    <div class="bottom">
+        <h2>{{ card.name }}</h2>
+        <p class="description">{{card.desc}} </p>
+
+        <div class="item">
+            <h3 class="title">Tipo</h3>
+            <p class="description">{{ card.type }}</p>
+        </div>
+        <div class="item">
+            <h3 class="title">Subtipo</h3>
+            <p class="description">{{ card.race }}</p>
+        </div>
+
+        <div class="item">
+            <h3 class="title">Nivel</h3>
+            <p class="description"> 
+                <img src="../../../assets/BAM-Star.png" class="tam" alt="">     {{ card.level * 2 }}
+            </p>
+        </div>
+
+        <table class="table">
+            <thead class="text-center fondo">
+                <tr>
+                    <th>Market</th>
+                    <th >Price</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                <tr  *ngFor="let market of card.card_prices[0] | keyvalue" >
+                    <th>{{ market.key | marketName }}</th>
+                    <th >{{ market.value | currency }}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
